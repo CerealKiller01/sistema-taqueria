@@ -1,0 +1,19 @@
+/* Login inicio */
+.loginGradient{
+    background-color: #21D4FD;
+    background-image: linear-gradient(180deg, #21D4FD 0%, #B721FF 100%);
+}
+.contenedorForm{
+    height: 100vh;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.formLogin{
+    &__label{
+        color: white;
+    }
+    &__btn{
+        margin-top: .5rem;
+    }
+}
+/* Login Fin */

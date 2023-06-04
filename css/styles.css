@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+/* Login inicio */
+.loginGradient {
+  background-color: #21D4FD;
+  background-image: linear-gradient(180deg, #21D4FD 0%, #B721FF 100%); }
+
+.contenedorForm {
+  height: 100vh;
+  max-width: 700px;
+  margin: 0 auto; }
+
+.formLogin__label {
+  color: white; }
+.formLogin__btn {
+  margin-top: .5rem; }
+
+/* Login Fin */
+/* Productos inicio */
+.header {
+  margin-top: .5rem;
+  margin-bottom: 3rem;
+  height: 40px; }
+  .header__titulo {
+    margin: 0;
+    font-size: 1.1rem; }
+  .header__productoBotonesSearch {
+    width: 200px; }
+
+.contenedor {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto; }
+
+.catalogo {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); }
+
+.carta {
+  max-width: 330px;
+  padding-bottom: 5px;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem; }
+  .carta__img {
+    width: 100%;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem; }
+  .carta__contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem; }
+  .carta__input {
+    width: 75%; }
+
+/* Productos fin */
+/* Carrito inicio */
+.contenedorCarrito {
+  width: 90%;
+  max-width: 850px;
+  margin: 1rem auto; }
+
+.contenedorImagen {
+  display: flex;
+  justify-content: center; }
+  .contenedorImagen__img {
+    width: 100px;
+    height: 70px;
+    border-radius: 1.3rem;
+    -webkit-border-radius: 1.3rem;
+    -moz-border-radius: 1.3rem;
+    -ms-border-radius: 1.3rem;
+    -o-border-radius: 1.3rem; }
+
+.contenedorPago {
+  max-width: 230px; }
+  .contenedorPago__btn {
+    max-width: 130px; }
+
+/* Carrito fin */
+/* detalleVenta inicio */
+.contenedorDetalleVenta {
+  width: 90%;
+  max-width: 1000px;
+  margin: 1rem auto; }
+
+/* detalleVenta fin */
+
+/*# sourceMappingURL=styles.css.map */

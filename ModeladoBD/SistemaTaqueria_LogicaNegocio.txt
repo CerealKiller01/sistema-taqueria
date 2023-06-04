@@ -1,0 +1,109 @@
+Entidades Del Sistema
+*categoria_productos
+categoria_producto_id
+nombre_categoria
+
+*productos (EC)
+producto_id **PK**
+nombre
+categoria_producto_id **FK**
+imagen
+precio
+cantidad
+fecha_registro_producto
+
+
+
+*empleados (ED)
+empleado_id **PK**
+nombre
+apellido_paterno
+apellido_materno
+telefono **UQ**
+rol
+fecha_registro_empleado
+
+
+*empleados_x_usuarios
+exp **PK**
+empleado_id **FK**
+usuario_id **FK**
+
+
+*usuarios
+usuario_id **PK**
+username **UQ**
+password
+
+
+*carrito (ED)
+carrito_id **PK**
+producto_id **FK**
+cantidad
+
+*ventas (ED)
+venta_id **PK**
+empleado_id **FK**
+fecha_venta
+monto
+dinero_cliente
+cambio
+
+
+*articulos_x_venta (ED|EP)
+
+axv_id **PK**
+venta_id **FK**
+producto_id **FK**
+cantidad
+total_x_producto
+
+##RELACIONES
+
+productos tienen carrito 1 M--
+empleado tiene usuario 1 1
+usarios pertenece a usuario 1 1
+producto genera ventas M M
+venta tiene pruducto 1 M
+
+
+###REGLAS DE NEGOCIO
+0 = mesero
+1=cajero
+2=administrador
+
+*empleados
+-CRUD
+-Si el empleado es borrado su usario tambien debe ser borrado con CASCADA
+*usuarios
+-Create
+-Read
+-Update
+-No se pueden eliminar los usuarios
+-el usuario debe ser unico
+*productos
+-CRUD
+*carrito
+-CRUD
+*venta
+-Crear venta
+-Visualizarla(s) ventas
+-Cuando una venta se BORRE los articulos por venta tambien se deben borrar en CASCADA
+-Si un empleado es BORRADO su venta debe permanecer pero su empleado_id debe pasar a ser NULL.
+-Si la venta es BORRADA los productos por la venta deben ser BORRADOS la tabla articulos_x_venta
+*articulos_x_venta
+-Crear detalle de venta de articulo
+-Visualizarla detalles de la venta de articulos
+*categoria_productos
+Tener las categorias precargadas 
+No se pueden agregar más categorias 
+No se pueden eliminar 
+No se pueden modificar 
+No se puedes actualizar 
+
+### Secciones del Sistema
+-Login ---
+-Catalogo de productos * Si el rol es 1 NO mostrar el boton para acceder al dashboard* ----
+-Carrito de productos---
+-Detalles de la orden --
+-Modificar el dashboard
