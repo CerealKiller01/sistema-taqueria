@@ -65,7 +65,11 @@ $(function () {
         texto,
       dataType: "JSON",
       success: function (response) {
+        if(response.length == 0){
+          $('#mostrarProductos').html('<div class="carta"><strong>Sin resultados :(</strong></div>')
+        }else{
         productos(response);
+        }
       },
       error: function () {
         console.log("Error en el servidor al buscar");
