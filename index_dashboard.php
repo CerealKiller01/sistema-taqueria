@@ -491,6 +491,7 @@ if (!isset($_SESSION['empleado_id'])) {
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="dist/js/pages/dashboard.js"></script>
   <script src="./dist/js/pages/dashboard/dashboard.js"></script>
+  
 </body>
 
 </html>
