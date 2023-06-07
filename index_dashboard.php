@@ -217,9 +217,18 @@ if (!isset($_SESSION['empleado_id'])) {
                   <?php
                   $alimento_mas_vendido = mysqli_query($conexion, "SELECT P.nombre, SUM(AV.cantidad) AS 'total' FROM articulos_x_venta AV INNER JOIN productos P ON AV.producto_id = P.productos_id WHERE P.categoria_producto_id BETWEEN 14 AND 15 GROUP BY P.nombre ORDER BY `total` DESC") or die('Error en la consulta ' . mysqli_error($conexion));
                   $r_alimento_mas_vendido = mysqli_fetch_array($alimento_mas_vendido);
+                  if (isset($r_alimento_mas_vendido['total']) && isset($r_alimento_mas_vendido['nombre'])) {
+
+
                   ?>
-                  <h3><?php echo $r_alimento_mas_vendido['total'] ?></h3>
-                  <p><?php echo $r_alimento_mas_vendido['nombre'] ?></p>
+                    <h3><?php echo $r_alimento_mas_vendido['total'] ?></h3>
+                    <p><?php echo $r_alimento_mas_vendido['nombre'] ?></p>
+                  <?php } else {
+                  ?>
+                    <h3>0</h3>
+                    <p>Sin registro</p>
+                  <?php } ?>
+
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -235,9 +244,15 @@ if (!isset($_SESSION['empleado_id'])) {
                   <?php
                   $bebida_mas_vendida = mysqli_query($conexion, "SELECT P.nombre, SUM(AV.cantidad) AS 'total' FROM articulos_x_venta AV INNER JOIN productos P ON AV.producto_id = P.productos_id WHERE P.categoria_producto_id = 17 GROUP BY P.nombre ORDER BY `total` DESC") or die('Error en la consulta ' . mysqli_error($conexion));
                   $r_bebida_mas_vendida = mysqli_fetch_array($bebida_mas_vendida);
+                  if (isset($r_bebida_mas_vendida['total']) && isset($r_bebida_mas_vendida['nombre'])) {
                   ?>
-                  <h3><?php echo $r_bebida_mas_vendida['total'] ?></h3>
-                  <p><?php echo $r_bebida_mas_vendida['nombre'] ?></p>
+                    <h3><?php echo $r_bebida_mas_vendida['total'] ?></h3>
+                    <p><?php echo $r_bebida_mas_vendida['nombre'] ?></p>
+                  <?php } else { ?>
+                    <h3>0</h3>
+                    <p>Sin registro</p>
+                  <?php } ?>
+
                 </div>
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
@@ -253,8 +268,12 @@ if (!isset($_SESSION['empleado_id'])) {
                   <?php
                   $venta_total = mysqli_query($conexion, "SELECT SUM(monto) AS 'venta_total' FROM ventas") or die('Error en la consulta ' . mysqli_error($conexion));
                   $r_venta_total = mysqli_fetch_array($venta_total);
+                  if ($r_venta_total['venta_total'] == null) {
                   ?>
-                  <h3>$<?php echo $r_venta_total['venta_total'] ?></h3>
+                    <h3>$0</h3>
+                  <?php } else { ?>
+                    <h3>$<?php echo $r_venta_total['venta_total'] ?></h3>
+                  <?php } ?>
                   <p>Venta total</p>
                 </div>
                 <div class="icon">
@@ -267,7 +286,7 @@ if (!isset($_SESSION['empleado_id'])) {
           </div>
           <!-- /.row -->
           <!-- Main row -->
-          
+
           <div class="row">
             <!-- Left col -->
             <section class="col-lg-7 connectedSortable">
@@ -456,44 +475,44 @@ if (!isset($_SESSION['empleado_id'])) {
   <!-- ./wrapper -->
 
   <!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="plugins/moment/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script>
-<!-- SweetAlert2 -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!-- Funciones Dashboard -->
-<script src="./dist/js/pages/dashboard/dashboard.js"></script>
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <!-- Bootstrap 4 -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- ChartJS -->
+  <script src="plugins/chart.js/Chart.min.js"></script>
+  <!-- Sparkline -->
+  <script src="plugins/sparklines/sparkline.js"></script>
+  <!-- JQVMap -->
+  <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+  <!-- daterangepicker -->
+  <script src="plugins/moment/moment.min.js"></script>
+  <script src="plugins/daterangepicker/daterangepicker.js"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- Summernote -->
+  <script src="plugins/summernote/summernote-bs4.min.js"></script>
+  <!-- overlayScrollbars -->
+  <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="dist/js/demo.js"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="dist/js/pages/dashboard.js"></script>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Funciones Dashboard -->
+  <script src="./dist/js/pages/dashboard/dashboard.js"></script>
 </body>
 
 </html>
