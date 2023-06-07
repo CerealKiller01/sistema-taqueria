@@ -44,10 +44,6 @@ $(function() {
             data:datosBusqueda,
             dataType: "JSON",
             success: function (response) {
-                // const fecha = response.map(r => r.mes);
-                // const monto = response.map(r => r.monto);
-                // console.log(fecha);
-                // console.log(monto);
                 graf.data.datasets[0].data.splice(0,graf.data.datasets[0].data.length);
                 graf.data.labels.splice(0,graf.data.labels.length);
                 for (const iterator of response) {
@@ -58,7 +54,11 @@ $(function() {
 
             },
             error:function(){
-                console.log("Error en el servidor");
+              Swal.fire({
+                icon: 'error',
+                title: '¡Error Fatal!',
+                text: 'Un error inesperado ocurrio en el servidor.'
+              })
             }
         });
         return false;
@@ -96,7 +96,11 @@ $(function() {
                 
             },
             error:function(){
-                console.log('Error en el servidor');
+              Swal.fire({
+                icon: 'error',
+                title: '¡Error Fatal!',
+                text: 'Un error inesperado ocurrio en el servidor.'
+              })
             }
         });
         return false;
@@ -131,7 +135,11 @@ $(function() {
                 $('#mostrarAlimentos').html(alimentoMasVendido);
             },
             error:function(){
-                console.log("Error en el servidor");
+              Swal.fire({
+                icon: 'error',
+                title: '¡Error Fatal!',
+                text: 'Un error inesperado ocurrio en el servidor.'
+              })
             }
         });
         return false;
@@ -157,7 +165,11 @@ $(function() {
                 $('#datosVentaTotal').html(ventaTotal);
             },
             error:function(){
-                console.log("Error en el servidor");
+              Swal.fire({
+                icon: 'error',
+                title: '¡Error Fatal!',
+                text: 'Un error inesperado ocurrio en el servidor.'
+              })
             }
         });
         return false;
@@ -199,7 +211,11 @@ $(function() {
                 $('#totalRefrescos').text(`Total: $${totalVentaRefrescos}`);
             },
             error:function(){
-                console.log("Error en el servidor");
+              Swal.fire({
+                icon: 'error',
+                title: '¡Error Fatal!',
+                text: 'Un error inesperado ocurrio en el servidor.'
+              })
             }
         });
         return false;

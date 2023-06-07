@@ -19,7 +19,12 @@ $(function(){
             window.location="./empleados.php";
         },
         error:function(){
-          console.log('error en el servidor');
+          Swal.fire({
+            icon: 'error',
+            title: '¡Error Fatal!',
+            text: 'Un error inesperado ocurrio en el servidor.'
+          })
+
         }
     }); 
     return false;

@@ -16,7 +16,11 @@ $(function(){
                 }
             },
             error:function(){
-                console.log("Error en el servidor");
+                Swal.fire({
+                    icon: 'error',
+                    title: '¡Error Fatal!',
+                    text: 'Un error inesperado ocurrio en el servidor.'
+                  })
             }
         });
     };
@@ -39,11 +43,9 @@ $(function(){
             <td><button class="btn btn-danger" id="btnBorrar">Borrar</button></td>
           </tr>
             `;
-            
         }
         $('#datosProductos').html(datos);
         $('#totalPagar').text(`Total a pagar : $${suma}`);
-        console.log(suma);
     }
 
     // ?Borrar articulo
@@ -57,7 +59,11 @@ $(function(){
                 mostrarProductos();
             },
             error:function(){
-                console.log("Error en el servidor");
+                Swal.fire({
+                    icon: 'error',
+                    title: '¡Error Fatal!',
+                    text: 'Un error inesperado ocurrio en el servidor.'
+                  })
             }
         });
     });
@@ -108,15 +114,16 @@ $(function(){
                     data: datosVenta,
                     dataType: "JSON",
                     success: function (response) {
-                        console.log(response);
                         setTimeout(function(){
                             window.location="./../mostrarProductos/mostrarProductos.php";
                         },1500);
-                        
-
                     },
                     error:function(){
-                        console.log("Error en el servidor");
+                        Swal.fire({
+                            icon: 'error',
+                            title: '¡Error Fatal!',
+                            text: 'Un error inesperado ocurrio en el servidor.'
+                          })
                     }
                   });
 

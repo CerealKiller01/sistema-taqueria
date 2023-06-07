@@ -2,17 +2,17 @@
 require './../../dist/php/functions/conexion.php';
 // ?Verificamos que la sesion este iniciada en casdo contrario redireccionamos al index
 session_start();
-if(!isset($_SESSION['empleado_id'])){
-  session_destroy();
-  header('location: ./../../index.php ');
-  die();
-}else{
-  $empleado_id = $_SESSION['empleado_id'];
-  if($_SESSION['rol']!=2){
+if (!isset($_SESSION['empleado_id'])) {
     session_destroy();
     header('location: ./../../index.php ');
     die();
-  }
+} else {
+    $empleado_id = $_SESSION['empleado_id'];
+    if ($_SESSION['rol'] != 2) {
+        session_destroy();
+        header('location: ./../../index.php ');
+        die();
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -102,6 +102,8 @@ if(!isset($_SESSION['empleado_id'])){
     <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- JS registroEmpleados -->
     <script src="./../../dist/js/pages/empleados/registroEmpleados.js"></script>
 </body>

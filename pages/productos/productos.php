@@ -239,6 +239,8 @@ if(!isset($_SESSION['empleado_id'])){
     <script src="https://cdn.datatables.net/datetime/1.4.1/js/dataTables.dateTime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdn.datatables.net/plug-ins/1.13.4/api/sum().js"></script>
+    <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./productos.js"></script>
 </body>
 

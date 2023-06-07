@@ -90,10 +90,13 @@ $(function(){
                     dataType: "JSON",
                     success: function (response) {
                         tablaProductos.ajax.reload();
-                        console.log(response);
                     },
                     error:function(){
-                        console.log("Error en el servidor");
+                        Swal.fire({
+                            icon: 'error',
+                            title: '¡Error Fatal!',
+                            text: 'Un error inesperado ocurrio en el servidor.'
+                          })
                     }
                 });
               Swal.fire("!Eliminado!", "Registro eliminado con exito", "success");
@@ -121,7 +124,11 @@ $(function(){
                 $(`#categoria option:contains(${nombre_categoria})`).prop("selected",true);
             },
             error:function(){
-                console.log("Error en el servidor");
+                Swal.fire({
+                    icon: 'error',
+                    title: '¡Error Fatal!',
+                    text: 'Un error inesperado ocurrio en el servidor.'
+                  })
             }
         });
     });
@@ -157,7 +164,11 @@ $(function(){
                 tablaProductos.ajax.reload();
             },
             error:function(){
-                console.log("Error en el servidor");
+                Swal.fire({
+                    icon: 'error',
+                    title: '¡Error Fatal!',
+                    text: 'Un error inesperado ocurrio en el servidor.'
+                  })
             }
         });
         return false;

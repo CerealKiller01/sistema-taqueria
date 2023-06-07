@@ -96,7 +96,12 @@ $(function () {
             tablaEmpleados.ajax.reload();
           },
           error: function () {
-            console.log("Error en el servidor");
+            Swal.fire({
+              icon: 'error',
+              title: '¡Error Fatal!',
+              text: 'Un error inesperado ocurrio en el servidor.'
+            })
+
           },
         });
         Swal.fire("!Eliminado!", "Registro eliminado con exito", "success");
@@ -130,7 +135,12 @@ $(function () {
         );
       },
       error: function () {
-        console.log("Error en el servidor");
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error Fatal!',
+          text: 'Un error inesperado ocurrio en el servidor.'
+        })
+
       },
     });
   });
@@ -157,7 +167,12 @@ $(function () {
         tablaEmpleados.ajax.reload();
       },
       error: function () {
-        console.log("Error en el servidor");
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error Fatal!',
+          text: 'Un error inesperado ocurrio en el servidor.'
+        })
+
       },
     });
   });

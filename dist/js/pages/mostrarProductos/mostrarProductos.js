@@ -51,7 +51,11 @@ $(function () {
         productos(response);
       },
       error: function () {
-        console.log("Error en el servidor");
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error Fatal!',
+          text: 'Un error inesperado ocurrio en el servidor.'
+        })
       },
     });
   }
@@ -72,7 +76,11 @@ $(function () {
         }
       },
       error: function () {
-        console.log("Error en el servidor al buscar");
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error Fatal!',
+          text: 'Un error inesperado ocurrio en el servidor al buscar.'
+        })
       },
     });
   }
@@ -107,10 +115,13 @@ $(function () {
           icon: "success",
           title: "Producto agregado!",
         });
-        console.log(response);
       },
       error: function () {
-        console.log("Error en el servidor");
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error Fatal!',
+          text: 'Un error inesperado ocurrio en el servidor.'
+        })
       },
     });
   }
@@ -155,28 +166,31 @@ $(function () {
                 }
               },
               error:function(){
-                console.log("Error en el servidor");
+                Swal.fire({
+                  icon: 'error',
+                  title: '¡Error Fatal!',
+                  text: 'Un error inesperado ocurrio en el servidor.'
+                })
               }
             });
-            console.log("ARRAY VACIO");
 
           }else{
             if(parseInt(cantidadBebida) <= parseInt(response[0].cantidad_disponible) ){
             agregarRegistro(datos);
-            console.log(response[0].cantidad_disponible);
-
             }else{
               Toast.fire({
                 icon: "error",
                 title: "¡Se ha alcanzado el limite maximo en stock!",
               });
             }
-
-            // console.log("EL ARRAY NO ESTA VACIO");
           }
         },
         error:function(){
-          console.log("Error en el servidor");
+          Swal.fire({
+            icon: 'error',
+            title: '¡Error Fatal!',
+            text: 'Un error inesperado ocurrio en el servidor.'
+          })
         }
       });
     }else{

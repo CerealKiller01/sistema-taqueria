@@ -49,6 +49,8 @@
     <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- JS registroCategoria -->
     <script src="./../../dist/js/pages/empleados/registroCategoria.js"></script>
 </body>

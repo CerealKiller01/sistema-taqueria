@@ -22,7 +22,11 @@ $(function(){
                 }
             },
             error:function(){
-                console.log("Error en el servidor");
+                Swal.fire({
+                    icon: 'error',
+                    title: '¡Error Fatal!',
+                    text: 'Un error inesperado ocurrio en el servidor.'
+                  })
             }
         });
         return false;

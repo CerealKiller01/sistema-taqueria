@@ -490,7 +490,10 @@ if (!isset($_SESSION['empleado_id'])) {
 <script src="dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard.js"></script>
-  <script src="./dist/js/pages/dashboard/dashboard.js"></script>
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Funciones Dashboard -->
+<script src="./dist/js/pages/dashboard/dashboard.js"></script>
 </body>
 
 </html>

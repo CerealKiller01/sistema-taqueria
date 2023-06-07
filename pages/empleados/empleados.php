@@ -2,13 +2,13 @@
 require './../../dist/php/functions/conexion.php';
 // ?Verificamos que la sesion este iniciada en casdo contrario redireccionamos al index
 session_start();
-if(!isset($_SESSION['empleado_id'])){
+if (!isset($_SESSION['empleado_id'])) {
   session_destroy();
   header('location: ./../../index.php ');
   die();
-}else{
+} else {
   $empleado_id = $_SESSION['empleado_id'];
-  if($_SESSION['rol']!=2){
+  if ($_SESSION['rol'] != 2) {
     session_destroy();
     header('location: ./../../index.php ');
     die();
@@ -222,6 +222,8 @@ if(!isset($_SESSION['empleado_id'])){
   <script src="https://cdn.datatables.net/datetime/1.4.1/js/dataTables.dateTime.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://cdn.datatables.net/plug-ins/1.13.4/api/sum().js"></script>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./empleados.js"></script>
 
 </body>

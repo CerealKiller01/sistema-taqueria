@@ -15,7 +15,12 @@ $(function(){
                 window.location="./usuarios.php";
             },
             error:function(){
-                console.log('errorResponse');
+                Swal.fire({
+                    icon: 'error',
+                    title: '¡Error Fatal!',
+                    text: 'Un error inesperado ocurrio en el servidor.'
+                  })
+
             }
         });
         return false;
